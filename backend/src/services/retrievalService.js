@@ -29,7 +29,7 @@ const retrieveRelevantchunks = async (pdfId, queryEmbedding) => {
     console.log(`   text: ${c.text.slice(0, 80)}\n`);
   });
 
-  // 🔥 ALWAYS RETURN TOP K (NO FILTERING = STABLE RAG)
+  
   const topchunks = scored.slice(0, 5);
 
   return topchunks;
