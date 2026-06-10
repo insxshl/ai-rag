@@ -65,7 +65,7 @@ Users can ask questions about uploaded PDFs, summarize content, extract key poin
 ## Live Demo
 
 Frontend:
-Add your Vercel URL here
+https://ai-pdf-buddy.vercel.app
 
 Backend:
 https://ai-rag-3gpc.onrender.com
