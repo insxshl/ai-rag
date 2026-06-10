@@ -13,7 +13,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.json({
     success: true,
-    message: "AI RAG Backend Running 🚀",
+    message: "AI RAG Backend Running",
   });
 });
 
