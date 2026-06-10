@@ -1,4 +1,4 @@
-const Chunk = require("../models/Chunk");
+const Chunk = require("../models/chunk");
 
 const saveChunk = async (
   pdfId,
