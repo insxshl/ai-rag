@@ -38,7 +38,7 @@ const uploadPdf = async (req, res) => {
     let savedchunks = 0;
 
     for (const chunk of chunks) {
-      // 🔥 FIX: skip useless chunks
+      
       if (!chunk || chunk.trim().length < 20) continue;
 
       try {
