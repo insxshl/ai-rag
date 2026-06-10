@@ -7,10 +7,8 @@ export default function ChatBox({ pdfId }) {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   
-  // Ref to automatically scroll to the bottom of the chat
   const chatContainerRef = useRef(null);
 
-  // Auto-scroll logic whenever messages change or loading state toggles
   useEffect(() => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
@@ -42,8 +40,7 @@ export default function ChatBox({ pdfId }) {
     setLoading(true);
 
     try {
-      // 2. FIXED: Map existing messages AND manually append the newest user message 
-      // to the history array so the backend gets the complete conversation context.
+
       const history = [
         ...messages.map((m) => ({
           role: m.role === "ai" ? "assistant" : "user",
@@ -107,7 +104,7 @@ export default function ChatBox({ pdfId }) {
           marginBottom: "20px",
         }}
       >
-        AI PDF Assistant
+        AI PDF Buddy
       </h2>
 
       <div
