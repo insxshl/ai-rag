@@ -23,4 +23,4 @@ const chunkSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Chunk", chunkSchema);
+module.exports = mongoose.model("chunk", chunkSchema);

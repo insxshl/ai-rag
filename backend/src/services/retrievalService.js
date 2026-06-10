@@ -1,8 +1,8 @@
 const cosine = require("compute-cosine-similarity");
-const Chunk = require("../models/Chunk");
+const chunk = require("../models/chunk");
 
-const retrieveRelevantChunks = async (pdfId, queryEmbedding) => {
-  const chunks = await Chunk.find({ pdfId });
+const retrieveRelevantchunks = async (pdfId, queryEmbedding) => {
+  const chunks = await chunk.find({ pdfId });
 
   if (!chunks || chunks.length === 0) {
     return [];
@@ -30,11 +30,11 @@ const retrieveRelevantChunks = async (pdfId, queryEmbedding) => {
   });
 
   // 🔥 ALWAYS RETURN TOP K (NO FILTERING = STABLE RAG)
-  const topChunks = scored.slice(0, 5);
+  const topchunks = scored.slice(0, 5);
 
-  return topChunks;
+  return topchunks;
 };
 
 module.exports = {
-  retrieveRelevantChunks,
+  retrieveRelevantchunks,
 };

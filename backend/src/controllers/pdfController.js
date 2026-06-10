@@ -1,7 +1,7 @@
 const Pdf = require("../models/Pdf");
 const chunkText = require("../rag/chunker");
 const { getEmbedding } = require("../services/embeddingService");
-const { saveChunk } = require("../services/vectorService");
+const { savechunk } = require("../services/vectorService");
 const pdfParse = require("pdf-parse");
 const fs = require("fs");
 
@@ -35,7 +35,7 @@ const uploadPdf = async (req, res) => {
       text,
     });
 
-    let savedChunks = 0;
+    let savedchunks = 0;
 
     for (const chunk of chunks) {
       // 🔥 FIX: skip useless chunks
@@ -44,11 +44,11 @@ const uploadPdf = async (req, res) => {
       try {
         const embedding = await getEmbedding(chunk);
 
-        await saveChunk(pdf._id, chunk, embedding);
+        await savechunk(pdf._id, chunk, embedding);
 
-        savedChunks++;
+        savedchunks++;
       } catch (err) {
-        console.log("Chunk embedding failed:", err.message);
+        console.log("chunk embedding failed:", err.message);
       }
     }
 
@@ -56,8 +56,8 @@ const uploadPdf = async (req, res) => {
       success: true,
       message: "PDF processed and vectors stored successfully 🚀",
       pdfId: pdf._id,
-      totalChunks: chunks.length,
-      savedChunks,
+      totalchunks: chunks.length,
+      savedchunks,
     });
   } catch (error) {
     console.log("Upload Error:", error);

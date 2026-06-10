@@ -1,5 +1,5 @@
 const { getEmbedding } = require("../services/embeddingService");
-const { retrieveRelevantChunks } = require("../services/retrievalService");
+const { retrieveRelevantchunks } = require("../services/retrievalService");
 const groq = require("../config/groq");
 
 const askQuestion = async (req, res) => {
@@ -15,7 +15,7 @@ const askQuestion = async (req, res) => {
 
     const queryEmbedding = await getEmbedding(question);
 
-    const chunks = await retrieveRelevantChunks(pdfId, queryEmbedding);
+    const chunks = await retrieveRelevantchunks(pdfId, queryEmbedding);
 
     if (!chunks.length) {
       return res.json({
@@ -25,7 +25,7 @@ const askQuestion = async (req, res) => {
     }
 
     const context = chunks
-      .map((c, i) => `Chunk ${i + 1}: ${c.text}`)
+      .map((c, i) => `chunk ${i + 1}: ${c.text}`)
       .join("\n\n");
 
     const prompt = `

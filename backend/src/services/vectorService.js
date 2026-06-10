@@ -1,22 +1,22 @@
-const Chunk = require("../models/chunk");
+const chunk = require("../models/chunk");
 
-const saveChunk = async (
+const savechunk = async (
   pdfId,
   text,
   embedding
 ) => {
-  return Chunk.create({
+  return chunk.create({
     pdfId,
     text,
     embedding,
   });
 };
 
-const getAllChunks = async () => {
-  return Chunk.find();
+const getAllchunks = async () => {
+  return chunk.find();
 };
 
 module.exports = {
-  saveChunk,
-  getAllChunks,
+  savechunk,
+  getAllchunks,
 };
